@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { CheckCircle2, Loader2, Mail, MapPin, Phone, Send, AlertCircle } from 'lucide-react'
 import { profile } from '../data/profile'
 import { useLocalize } from '../i18n'
-import { GitHubIcon, LinkedInIcon } from './BrandIcons'
+import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from './BrandIcons'
 import Section from './Section'
 import Reveal from './Reveal'
 
@@ -100,7 +100,13 @@ export default function Contact() {
 
   const contacts = [
     { icon: Mail, label: t('contact.email'), value: profile.email, href: `mailto:${profile.email}` },
-    ...profile.phones.map((p) => ({ icon: Phone, label: `${t('contact.phone')} · ${L({ fr: p.label, en: p.labelEn })}`, value: p.value, href: p.href })),
+    ...profile.phones.map((p) => ({
+      icon: p.whatsapp ? WhatsAppIcon : Phone,
+      label: L({ fr: p.label, en: p.labelEn }),
+      value: p.value,
+      href: p.href,
+      external: p.whatsapp,
+    })),
     { icon: LinkedInIcon, label: 'LinkedIn', value: 'linkedin.com/in/alex-bere', href: profile.linkedin, external: true },
     { icon: GitHubIcon, label: 'GitHub', value: 'github.com/berdalbere', href: profile.github, external: true },
     { icon: MapPin, label: t('about.location'), value: L(profile.location) },

@@ -6,9 +6,10 @@ export const profile = {
   shortName: 'Alex BERE',
   monogram: 'AB',
   email: 'alexcd.bere@gmail.com',
+  // whatsapp: true = ouvre une conversation WhatsApp ; sinon, lance un appel
   phones: [
-    { label: 'Burkina Faso', labelEn: 'Burkina Faso', value: '+226 71 78 23 10', href: 'tel:+22671782310' },
-    { label: 'Turquie', labelEn: 'Türkiye', value: '+90 538 869 89 95', href: 'tel:+905388698995' },
+    { label: 'WhatsApp', labelEn: 'WhatsApp', value: '+226 71 78 23 10', href: 'https://wa.me/22671782310', whatsapp: true },
+    { label: 'Appel direct', labelEn: 'Direct call', value: '+226 77 27 72 33', href: 'tel:+22677277233' },
   ],
   linkedin: 'https://www.linkedin.com/in/alex-bere/',
   github: 'https://github.com/berdalbere',
