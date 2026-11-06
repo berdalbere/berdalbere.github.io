@@ -29,9 +29,6 @@ jobs:
 
       - name: Build (pré-rendu inclus)
         run: npm run build
-        env:
-          # Variable de dépôt facultative : Settings → Secrets and variables → Actions → Variables
-          VITE_FORMSPREE_ID: ${{ vars.VITE_FORMSPREE_ID }}
 
       - name: Publication sur main
         uses: peaceiris/actions-gh-pages@v4

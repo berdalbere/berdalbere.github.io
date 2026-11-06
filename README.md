@@ -121,12 +121,10 @@ sans appel à Google au chargement.
 
 ## 6. Formulaire de contact (Formspree)
 
-1. Créer un compte sur [formspree.io](https://formspree.io) et un formulaire → identifiant du type `xyzabcd`.
-2. En local : copier `.env.example` en `.env` et renseigner `VITE_FORMSPREE_ID=xyzabcd`.
-3. Pour le site en ligne (GitHub Pages) : dépôt → **Settings → Secrets and variables → Actions → Variables**
-   → nouvelle variable `VITE_FORMSPREE_ID`.
+Les messages passent par [Formspree](https://formspree.io) et arrivent dans votre boîte mail.
+L'identifiant du formulaire est dans `.env.production` (`VITE_FORMSPREE_ID`). Il n'est pas secret : il figure dans le code du site.
 
-Sans identifiant, le bouton « Envoyer » ouvre la messagerie du visiteur avec le message pré-rempli (`mailto:`).
+Pour changer de formulaire, modifiez cette valeur puis publiez. Sans identifiant, le bouton « Envoyer » ouvre la messagerie du visiteur (`mailto:`).
 
 ## 7. Mettre à jour le site en ligne (https://berdalbere.github.io)
 
