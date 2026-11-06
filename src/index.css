@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Palette (canaux RGB pour profiter de l'opacité Tailwind) ---------- */
+
+/* Mode sombre (par défaut) */
+:root,
+.dark {
+  --bg: 11 17 32; /* #0B1120 bleu nuit */
+  --surface: 17 25 43; /* cartes */
+  --surface-2: 24 34 56; /* survols, badges */
+  --line: 39 51 77; /* bordures */
+  --ink: 226 232 240; /* #E2E8F0 texte principal */
+  --muted: 148 163 184; /* texte secondaire */
+  --accent: 16 185 129; /* #10B981 émeraude */
+  --accent-ink: 52 211 153; /* émeraude pour du texte sur fond sombre */
+  --on-accent: 6 24 18; /* texte posé sur un bouton émeraude */
+  --amber: 245 158 11; /* #F59E0B */
+  color-scheme: dark;
+}
+
+/* Mode clair : accents assombris pour garder un contraste AA sur fond blanc */
+.light {
+  --bg: 248 250 252;
+  --surface: 255 255 255;
+  --surface-2: 241 245 249;
+  --line: 226 232 240;
+  --ink: 15 23 42;
+  --muted: 71 85 105;
+  --accent: 4 120 87; /* #047857 : texte blanc dessus = 5,5:1 */
+  --accent-ink: 4 120 87;
+  --on-accent: 255 255 255;
+  --amber: 180 83 9;
+  color-scheme: light;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* compense la navbar sticky lors des sauts d'ancre */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-bg;
+  }
+
+  ::selection {
+    @apply bg-accent/30;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-surface;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full border border-line bg-surface-2 px-2.5 py-0.5 text-xs font-medium text-muted;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-on-accent hover:bg-accent/90;
+  }
+
+  .btn-ghost {
+    @apply btn border border-line text-ink hover:border-accent/60 hover:bg-surface-2;
+  }
+
+  .eyebrow {
+    @apply font-display text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink;
+  }
+}
+
+/* Grille de points décorative (fond du hero) */
+.dot-grid {
+  background-image: radial-gradient(rgb(var(--muted) / 0.22) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+/* Respect de prefers-reduced-motion pour le CSS (Framer Motion est géré dans App.jsx) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

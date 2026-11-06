@@ -1,0 +1,12 @@
+node_modules/
+dist/
+dist-ssr/
+.env
+.env.local
+
+# Projets sources (privés, uniquement utilisés pour rédiger le contenu)
+sources/
+
+# Notes de travail internes (le dépôt est public)
+SUIVI_PROJET.md
+PROMPT_PORTFOLIO_VSCODE.md
