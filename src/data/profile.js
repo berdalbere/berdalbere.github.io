@@ -7,14 +7,14 @@ export const profile = {
   monogram: 'AB',
   email: 'alexcd.bere@gmail.com',
   phones: [
-    { label: 'Turquie', labelEn: 'Türkiye', value: '+90 538 869 89 95', href: 'tel:+905388698995' },
     { label: 'Burkina Faso', labelEn: 'Burkina Faso', value: '+226 71 78 23 10', href: 'tel:+22671782310' },
+    { label: 'Turquie', labelEn: 'Türkiye', value: '+90 538 869 89 95', href: 'tel:+905388698995' },
   ],
   linkedin: 'https://www.linkedin.com/in/alex-bere/',
   github: 'https://github.com/berdalbere',
   location: {
-    fr: 'Istanbul, Turquie · Originaire de Ouagadougou, Burkina Faso',
-    en: 'Istanbul, Türkiye · From Ouagadougou, Burkina Faso',
+    fr: 'Réside à Ouagadougou, Burkina Faso',
+    en: 'Based in Ouagadougou, Burkina Faso',
   },
   cv: {
     fr: '/cv/Charles_Dalmace_Alex_BERE.pdf',
